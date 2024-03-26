@@ -2,39 +2,21 @@
 using namespace std;
 
 int main (){
-    string nama, umur, jenisKelamin, semuaPenyakit[] = {"Batuk", "Pilek", "Masuk Angin", "Demam", "Sakit Gigi"}, penyakit;
+    string aktivitas;
+    string tempat;
+    int umur;
 
-    cout << "=================================" << endl;
-    cout << "Program Pendaftaran Rumah Sakit" << endl;
-    cout << "=================================" << endl;
+    cout << "Apa aktivitas anda : ";
+    getline(cin, aktivitas);
 
-    cout << "Masukkan nama anda : ";
-    getline(cin, nama);
+    cout << "Dimana anda " << aktivitas << " : ";
+    getline(cin, tempat);
 
-    cout << "Masukkan umur anda [tahun] : ";
-    getline(cin, umur);
+    cout << "Usia berapa anda : ";
+    cin >> umur;
 
-    cout << "Masukkan jenis kelamin anda [pria/wanita] : ";
-    getline(cin, jenisKelamin);
-
-    cout << "==================" << endl;
-    cout << "Daftar Penyakit : " << endl;
-    cout << "==================" << endl;
-
-    for(int i = 0; i < 5; ++i){
-        cout << i + 1 << ". " << semuaPenyakit[i] << endl;
-    }
-    cout << "==================" << endl;
-
-    cout << "Pilih penyakit anda : ";
-    getline(cin, penyakit);
-
-    cout << penyakit;
-
-
-
-
-    
+    cout << "Anda sedang " << aktivitas << " di " << tempat << endl;
+    cout << "Anda berumur " << umur << " tahun";
 
 
     return 0;

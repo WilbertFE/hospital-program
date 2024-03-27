@@ -2,22 +2,22 @@
 using namespace std;
 
 int main (){
-    string aktivitas;
-    string tempat;
-    int umur;
+    double L, a, t;
 
-    cout << "Apa aktivitas anda : ";
-    getline(cin, aktivitas);
+    cout << "Menghitung luas segitiga\n===============================" << endl;
+    cout << "Masukkan alas \t= ";
+    cin >> a;
+    cout << "Masukkan tinggi \t= ";
+    cin >> t;
 
-    cout << "Dimana anda " << aktivitas << " : ";
-    getline(cin, tempat);
+    L = (a * t) / 2;
 
-    cout << "Usia berapa anda : ";
-    cin >> umur;
-
-    cout << "Anda sedang " << aktivitas << " di " << tempat << endl;
-    cout << "Anda berumur " << umur << " tahun";
-
+    cout << "Luas segitiga yang diketahui : " << endl;
+    cout << "alas\t=" << a << "cm" << endl;
+    cout << "tinggi\t=" << t << "cm" << endl;
+    cout << "adalah : " << endl;
+    cout << "L = (a x t) / 2";
+     
 
     return 0;
 }

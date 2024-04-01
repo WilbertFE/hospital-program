@@ -2,16 +2,20 @@
 using namespace std;
 
 int main (){
-    int a, hasil;
-    cout << "Masukkan bilangan bulat = ";
-    cin >> a;
+     int bil = 16;
+     cout << bil << endl;
 
-    hasil = a % 2;
+     bil -= 1;
+     cout << bil << endl;
 
-    string kondisi = hasil == 1 ? "Ganjil" : "Genap";
+     bil *= 5;
+     cout << bil << endl;
 
-    cout << "angka " << a << " adalah bilangan " << kondisi;
+     bil /= 5;
+     cout << bil << endl;
 
+     bil %= 5;
+     cout << bil << endl;
 
     return 0;
 }

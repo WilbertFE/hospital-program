@@ -2,20 +2,20 @@
 using namespace std;
 
 int main (){
-     int bil = 16;
-     cout << bil << endl;
+    int pil;
 
-     bil -= 1;
-     cout << bil << endl;
+    cout << "Pilih jenis kelamin\n1. Laki-laki\n2. Perempuan" << endl;
+    cout << "Masukkan pilihan = ";
+    cin >> pil;
 
-     bil *= 5;
-     cout << bil << endl;
+    if(pil == 1){
+        cout << "Jenis kelamin saya adalah laki-laki" << endl;
+    } else if(pil == 2){
+        cout << "Jenis kelamin saya adalah perempuan" << endl;
+    } else {
+        cout << "Pilihan yang tersedia hanya [1, 2]" << endl;
+    }
 
-     bil /= 5;
-     cout << bil << endl;
 
-     bil %= 5;
-     cout << bil << endl;
-
-    return 0;
+    return 0; 
 }

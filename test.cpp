@@ -16,6 +16,8 @@ int main (){
         cout << "Pilihan yang tersedia hanya [1, 2]" << endl;
     }
 
+    cout << "Just commit";
+
 
     return 0; 
 }

@@ -2,40 +2,44 @@
 using namespace std;
 
 int main (){
-    int pilihan;
-    
-    cout << "***************************" << endl;
-    cout << "*** Program Rumah Sakit ***" << endl;
-    cout << "***************************" << endl << endl;
+    const string daftarPenyakit[3] = {"Demam", "Batuk", "Pilek"};
+    string nama, jenisKelamin, ulang;
+    int umur, penyakit;
 
-    cout << "--Pilih Menu--" << endl;
-    cout << "1. Konsultasi" << endl;
-    cout << "2. Pengobatan Ringan" << endl;
-    cout << "3. Rawat Inap" << endl << endl;
-    cout << "Pilihan anda : ";
-    cin >> pilihan;
+    cout << "*************************" << endl;
+    cout << "** PROGRAM RUMAH SAKIT **" << endl;
+    cout << "*************************" << endl;
 
-    if(pilihan == 1){
-        string nama, gender;
-        int umur;
+    cout << "Silahkan Isi Formulir Berikut : " << endl;
 
-        cout << "*** Isi Formulir Berikut ***" << endl;
-        
-        cout << "Nama : ";
-        cin >> nama;
+    cout << "Nama Lengkap \t\t\t :";
+    getline(cin, nama);
+    cout << "Umur (angka) \t\t\t :";
+    cin >> umur;
 
-        cout << "Umur : ";
-        cin >> umur;
+    cin.ignore();
+    cout << "Jenis Kelamin (pria/wanita) \t :";
+    getline(cin, jenisKelamin);
 
-        cout << "Jenis Kelamin : ";
-        cin >> gender;
 
-    } else if (pilihan == 2){
-        cout << "Pengobatan satu hari";
-    } else if (pilihan == 3) {
-        cout << "Pengobatan rawat inap";
-    } else {
-        cout << "Pilihan hanya 1-3";
+    cout << "*************************" << endl;
+    cout << "** PILIH PENYAKIT ANDA **" << endl;
+    cout << "*************************" << endl << endl;
+
+    for(int i = 0; i < sizeof(daftarPenyakit) / sizeof(*daftarPenyakit); i++){
+        cout << (i+1) << ". " << daftarPenyakit[i] << endl;
     }
+    cout << "Penyakit Anda (nomor) : ";
+    cin >> penyakit;
 
+    cout << "*************************" << endl;
+    cout << "** INI DATA ANDA **" << endl;
+    cout << "*************************" << endl; 
+    
+    cout << "Apakah Anda Ingin Mengulangnya [y/n] : ";
+    cin >> ulang;
+
+
+
+    return 0;   
 }

@@ -2,22 +2,13 @@
 using namespace std;
 
 int main (){
-    int pil;
+    int angka[] = {24, 54, 56, 66, 43, 77, 83};
+    int jmlh_arr = sizeof(angka) / sizeof(*angka);
+    cout << jmlh_arr << endl;
 
-    cout << "Pilih jenis kelamin\n1. Laki-laki\n2. Perempuan" << endl;
-    cout << "Masukkan pilihan = ";
-    cin >> pil;
-
-    if(pil == 1){
-        cout << "Jenis kelamin saya adalah laki-laki" << endl;
-    } else if(pil == 2){
-        cout << "Jenis kelamin saya adalah perempuan" << endl;
-    } else {
-        cout << "Pilihan yang tersedia hanya [1, 2]" << endl;
+    for(int a = 0; a < jmlh_arr; a++){
+        cout << angka[a] << endl;
     }
 
-    cout << "Just commit";
-
-
-    return 0; 
+    return 0;
 }

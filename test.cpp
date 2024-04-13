@@ -1,14 +1,28 @@
 #include <iostream>
+#include <string>
+
 using namespace std;
 
-int main (){
-    int angka[] = {24, 54, 56, 66, 43, 77, 83};
-    int jmlh_arr = sizeof(angka) / sizeof(*angka);
-    cout << jmlh_arr << endl;
+class Mahasiswa{
+    public:
+        string nama;
+        double IPK;
 
-    for(int a = 0; a < jmlh_arr; a++){
-        cout << angka[a] << endl;
-    }
+        Mahasiswa(string nama, double IPK){
+            Mahasiswa::nama = nama;
+            Mahasiswa::IPK = IPK;
+        }
 
+        void tampilkanData(){
+            cout << nama << endl;
+            cout << IPK << endl;
+        }
+};
+
+
+int main(int agrc, char const *argv[])
+{
+    Mahasiswa mahasiswa1 = Mahasiswa("Frieren", 9.0);
+   
     return 0;
 }

@@ -31,7 +31,35 @@ class Dokter {
       }
 };
 
+void header(){
+    cout << "=========================" << endl;
+    cout << "== PROGRAM RUMAH SAKIT ==" << endl;
+    cout << "=========================" << endl;
+    cout << "==== by kel. wilbert ====" << endl;
+    cout << "=========================" << endl;
+    cout << ">>>   Jenis Layanan   <<<" << endl;
+    cout << "=========================" << endl;
+    cout << "====  1. Rawat Inap  ====" << endl;
+    cout << "====  2. Rawat Jalan ====" << endl;
+    cout << "=========================" << endl << endl;
+}
 
+void tampilkanJenisPembayaran(){
+    cout << "============================" << endl;
+    cout << ">>>   Jenis Pembayaran   <<<" << endl;
+    cout << "============================" << endl;
+    cout << "====      1. Umum       ====" << endl;
+    cout << "====      2. BPJS       ====" << endl;
+    cout << "============================" << endl << endl;
+}
+
+void rawatInapUmum(){
+    cout << "Rawat Inap Umum";
+}
+
+void rawatInapBPJS(){
+    cout << "Rawat Inap BPJS";
+}
 
 
 
@@ -39,163 +67,42 @@ int main(){
     // variable data inap
     Dokter dokterInap[3] = {Dokter("Dokter Kulit", 300000), Dokter("Dokter Penyakit Dalam", 400000), Dokter("Dokter Umum", 200000)};
     Penyakit penyakitKulit[2] = {Penyakit("Herpes", "Acyclovir - Rp. 40000", "Famiciclovir - Rp. 25000", "Penciclovir - Rp. 35000", 100000), Penyakit("Infeksi Kulit", "Nyastin - Rp. 20000", "Fluconazole - Rp. 15000", "Ketoconazole - Rp. 40000", 75000)};
-
-    // Hubungkan class Dokter dan Class Penyakit
-    for(int i = 0; i < 2; i++){
-        dokterInap[0].tambahPenyakit(&penyakitKulit[i], i);
-    }
-
-    cout << dokterInap[0].daftarPenyakit[0] << endl;
-    cout << dokterInap[0].daftarPenyakit[1] << endl;
-
-    int hargaInap = 0;
-    int hargaDokter = 0;
-    int hargaObat = 0;
+    // variable harga
+    int hargaInap = 0, hargaDokter = 0, hargaObat = 0, totalHarga = 0;
     // variable umum
-    int jenisLayanan;
-    int totalHarga;
-    string nama, umur, jenisKelamin;
+    string jenisLayanan, ulang = "y";
 
-    
+   while(ulang == "y"){
+    pilihJenisLayanan:
+        header();
+        cout << "Pilih [angka] = ";
+        getline(cin, jenisLayanan);
 
-    cout << "=========================" << endl;
-    cout << "== PROGRAM RUMAH SAKIT ==" << endl;
-    cout << "=========================" << endl;
-    cout << "==== by kel. wilbert ====" << endl;
-    cout << "=========================" << endl << endl;
-
-    cout << "=== SILAHKAN ISI DATA ===" << endl;
-    cout << "Nama \t\t= ";
-    getline(cin, nama);
-    cout << "Umur [angka] \t= ";
-    getline(cin, umur);
-    cout << "Jenis Kelamin \t= ";
-    getline(cin, jenisKelamin);
-
-    // spasi
-    cout << endl;
-    
-    cout << "***   Jenis Layanan   ***" << endl;
-    cout << "1. Rawat Inap\n2. Rawat Jalan" << endl << endl;
-    cout << "Pilih [angka] = ";
-    cin >> jenisLayanan;
-
-    // spasi
-    cout << endl;
-
-    if(jenisLayanan == 1){
-        // variable kamar
-        int kamar, lamaMenginap;
-        // variable dokter
-        int dokter;
-
-        cout << "======================" << endl;
-        cout << "== PILIH KAMAR ANDA ==" << endl;
-        cout << "======================" << endl;
-        cout << "==  1. Kamar VVIP   ==" << endl;
-        cout << "==  1. Kamar Biasa  ==" << endl;
-        cout << "======================" << endl << endl;
-
-        cout << "Pilih Kamar [angka] \t= ";
-        cin >> kamar;
-        cout << "Lama Menginap [angka] \t= ";
-        cin >> lamaMenginap;
-
-        // spasi
-        cout << endl;
-
-        if(kamar == 1 && lamaMenginap > 0){
-            hargaInap = 1000000 * lamaMenginap;
-        } else if (kamar == 2 && lamaMenginap > 0){
-            hargaInap = 500000 * lamaMenginap;
+    if(jenisLayanan == "1"){
+        string jenisPembayaran;
+        pilihJenisPembayaran: 
+            tampilkanJenisPembayaran();
+            cout << "Pilih [angka] = ";
+            getline(cin, jenisPembayaran);
+        
+        if(jenisPembayaran == "1"){
+            rawatInapUmum();
+        } else if (jenisPembayaran == "2"){
+            rawatInapBPJS();
         } else {
-            cout << "Ada kesalahan, silahkan mulai ulang program";
-            return 0;
+            goto pilihJenisPembayaran;
         }
-
-        cout << "=======================" << endl;
-        cout << "== PILIH DOKTER ANDA ==" << endl;
-        cout << "=======================" << endl;
-
-        for(int i = 0; i < sizeof(dokterInap) / sizeof(*dokterInap); i++){
-            cout << (i+1) << ". " << dokterInap[i].nama << endl;
-        }
-        // spasi
-        cout << endl;
-
-        cout << "Pilih Dokter = ";
-        cin >> dokter;
-
-        // guard
-        if(!(dokter > 0 && dokter < 4)){
-            cout << "Ada kesalahan, silahkan mulai ulang program";
-            return 0;
-        }
-        hargaDokter = dokterInap[dokter - 1].hargaJasa;
-
-        // spasi 
-        cout << endl;
-
-        cout << "=========================" << endl;
-        cout << "== PILIH PENYAKIT ANDA ==" << endl;
-        cout << "=========================" << endl;
-
-        if(dokter == 1){
-            // variable penyakit
-            int penyakit;
-
-            for(int i = 0; i < sizeof(penyakitKulit) / sizeof(*penyakitKulit); i++){
-                cout << (i+1) << ". " << penyakitKulit[i].nama << endl;
-            }
-            // spasi 
-            cout << endl;
-
-            cout << "Pilih Penyakit = ";
-            cin >> penyakit;
-
-            // spasi 
-            cout << endl;
-
-            // guard
-            if(!(penyakit > 0 && penyakit < 3)){
-                cout << "Ada kesalahan, silahkan mulai ulang program";
-                return 0;
-            }
-            
-            cout << "=========================" << endl;
-            cout << "== OBAT PENYAKIT ANDA ==" << endl;
-            cout << "=========================" << endl;
-
-
-            for(int i = 0; i < sizeof(penyakitKulit[penyakit - 1].obat) / sizeof(*penyakitKulit[penyakit - 1].obat); i++){
-                cout << (i+1) << ". " << penyakitKulit[penyakit - 1].obat[i] << endl;
-            }
-            hargaObat = penyakitKulit[penyakit - 1].totalHargaObat;
-            // spasi
-            cout << endl;
-        }
-    } else if(jenisLayanan == 2){
+    } else if (jenisLayanan == "2"){
         cout << "Rawat Jalan";
     } else {
-        cout << "Ada kesalahan, silahkan mulai ulang program";
-        return 0;
+        goto pilihJenisLayanan;
     }
+    ulang = "n";
+   }
 
-    totalHarga = hargaInap + hargaDokter + hargaObat;
-
-    cout << "====================" << endl;
-    cout << "== DATA DIRI ANDA ==" << endl;
-    cout << "====================" << endl;
-    
-    cout << "Nama \t\t= " << nama << endl;
-    cout << "Umur \t\t= " << umur << " tahun" << endl;
-    cout << "Jenis Kelamin \t= " << jenisKelamin << endl;
-    cout << "Harga Inap \t= " << hargaInap << endl;
-    cout << "Harga Jasa \t= " << hargaDokter << endl;
-    cout << "Harga Obat \t= " << hargaObat << endl;
-    cout << "Total \t\t= " << totalHarga << endl;
 
 
     cout << "\nProgram Selesai";
     return 0;
 }
+

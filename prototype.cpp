@@ -115,7 +115,6 @@ int main() {
     int hargaInap = 0, hargaDokter = 0, hargaObat = 0, totalHarga = 0;
     string jenisLayanan, ulang = "y";
     bool bpjs, inap;
-    int hariInap = 0;
     // variable registrasi
     string namaPasien, umurPasien, jenisKelaminPasien;
     
@@ -136,7 +135,7 @@ int main() {
 
         if(jenisLayanan == "1" || jenisLayanan == "2"){
             string jenisPembayaran;
-
+ 
             if(jenisLayanan == "1") inap = true;
             else inap = false;
 
@@ -167,7 +166,7 @@ int main() {
         cout << "Nama\t= " << namaPasien << endl;
         cout << "Umur\t= " << umurPasien << " tahun" << endl;
         cout << "Gender\t= " << jenisKelaminPasien << endl;
-        
+
         cout << "+++++++++++++++++++++++++++" << endl;
         cout << "Harga Inap\t= " << "Rp. " << hargaInap << endl;
         cout << "Harga Jasa\t= " << "Rp. " << hargaDokter << endl;
@@ -183,7 +182,7 @@ int main() {
         cout << endl;
    }
 
-    cout << "\nProgram Selesai";
+    cout << "\nProgram Done";
     return 0;
 }
 

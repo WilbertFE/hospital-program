@@ -151,7 +151,7 @@ int main() {
 
             if(jenisLayanan == "1"){
                 rawatPasien(dokterInap, &hargaInap, &hargaDokter, &hargaObat, &totalHarga, inap);
-            } else {
+            } else { 
                 rawatPasien(dokterJalan, &hargaInap, &hargaDokter, &hargaObat, &totalHarga, inap);
             }
         } else {
@@ -182,7 +182,7 @@ int main() {
         cout << endl;
    }
 
-    cout << "\nProgram Done";
+    cout << "\nProgram Selesai";
     return 0;
 }
 

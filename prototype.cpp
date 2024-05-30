@@ -182,7 +182,7 @@ int main() {
         cout << endl;
    }
 
-    cout << "\nProgram Selesai";
+    cout << "\nProgram Selesai 2";
     return 0;
 }
 

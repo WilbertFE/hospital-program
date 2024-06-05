@@ -1,5 +1,4 @@
 #include <iostream>
-#include <string>
 using namespace std;
 
 // deklarasi
@@ -187,8 +186,9 @@ int main() {
 }
 
 void rawatPasien(Dokter *dokter, int *hargaInap, int *hargaDokter, int *hargaObat, int *totalHarga, bool inap){
-    string kamar, pilihDokter, penyakit;
+    string kamar, penyakit;
     int lamaInap, totalHargaObat = 0;
+    int pilihDokter;
 
     // mencari harga inap
     if(inap){
@@ -220,11 +220,11 @@ void rawatPasien(Dokter *dokter, int *hargaInap, int *hargaDokter, int *hargaOba
         cout << endl;
 
         // guard
-    if(pilihDokter != "1" && pilihDokter != "2" && pilihDokter != "3"){
+    if(pilihDokter != 1 && pilihDokter != 2 && pilihDokter != 3){
         goto pilihDokter;
     }
 
-    const int indexDokter = stoi(pilihDokter) - 1;
+    const int indexDokter = pilihDokter - 1;
     if(inap) *hargaDokter = dokter[indexDokter].harga * lamaInap;
     else *hargaDokter = dokter[indexDokter].harga;
 
